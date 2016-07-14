@@ -17,10 +17,10 @@ if(!defined("WHMCS")){
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 // 改为 ClientAreaHomepage 可以打开客户中心首页测试，改为 ClientLogin 将在登陆后执行
-add_hook('ClientAreaHomepage', 1, function ($vars){
+add_hook('ClientLogin', 1, function ($vars){
     /**
      * 使用 Capsule 读取 WHMCS 管理员用户名，用于 API，这样就不必你自己输入了
-     * 有关文档：https://laravel.com/docs/5.2/queries
+     * 有关文档：https://laravel.com/docs/4.2/queries
      */
     $whmcsadmin = Capsule::table('tbladmins')->select('username')->first(); // 返回一个对象
 
